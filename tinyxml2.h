@@ -62,14 +62,14 @@ distribution.
 
 #ifdef _WIN32
 #   ifdef TINYXML2_EXPORT
-#       define TINYXML2_LIB __declspec(dllexport)
+#       define  __declspec(dllexport)
 #   elif defined(TINYXML2_IMPORT)
-#       define TINYXML2_LIB __declspec(dllimport)
+#       define  __declspec(dllimport)
 #   else
-#       define TINYXML2_LIB
+//#       define 
 #   endif
 #else
-#   define TINYXML2_LIB
+#   define 
 #endif
 
 
@@ -441,7 +441,7 @@ private:
 
 	@sa XMLNode::Accept()
 */
-class TINYXML2_LIB XMLVisitor
+class  XMLVisitor
 {
 public:
     virtual ~XMLVisitor() {}
@@ -610,7 +610,7 @@ public:
 
 	@endverbatim
 */
-class TINYXML2_LIB XMLNode
+class  XMLNode
 {
     friend class XMLDocument;
     friend class XMLElement;
@@ -891,7 +891,7 @@ private:
 	you generally want to leave it alone, but you can change the output mode with
 	SetCData() and query it with CData().
 */
-class TINYXML2_LIB XMLText : public XMLNode
+class  XMLText : public XMLNode
 {
     friend class XMLBase;
     friend class XMLDocument;
@@ -932,7 +932,7 @@ private:
 
 
 /** An XML Comment. */
-class TINYXML2_LIB XMLComment : public XMLNode
+class  XMLComment : public XMLNode
 {
     friend class XMLDocument;
 public:
@@ -971,7 +971,7 @@ private:
 	The text of the declaration isn't interpreted. It is parsed
 	and written as a string.
 */
-class TINYXML2_LIB XMLDeclaration : public XMLNode
+class  XMLDeclaration : public XMLNode
 {
     friend class XMLDocument;
 public:
@@ -1006,7 +1006,7 @@ private:
 
 	DTD tags get thrown into XMLUnknowns.
 */
-class TINYXML2_LIB XMLUnknown : public XMLNode
+class  XMLUnknown : public XMLNode
 {
     friend class XMLDocument;
 public:
@@ -1041,7 +1041,7 @@ private:
 	@note The attributes are not XMLNodes. You may only query the
 	Next() attribute in a list.
 */
-class TINYXML2_LIB XMLAttribute
+class  XMLAttribute
 {
     friend class XMLElement;
 public:
@@ -1140,7 +1140,7 @@ private:
 	and can contain other elements, text, comments, and unknowns.
 	Elements also contain an arbitrary number of attributes.
 */
-class TINYXML2_LIB XMLElement : public XMLNode
+class  XMLElement : public XMLNode
 {
     friend class XMLBase;
     friend class XMLDocument;
@@ -1517,7 +1517,7 @@ enum Whitespace {
 	All Nodes are connected and allocated to a Document.
 	If the Document is deleted, all its Nodes are also deleted.
 */
-class TINYXML2_LIB XMLDocument : public XMLNode
+class  XMLDocument : public XMLNode
 {
     friend class XMLElement;
 public:
@@ -1785,7 +1785,7 @@ private:
 
 	See also XMLConstHandle, which is the same as XMLHandle, but operates on const objects.
 */
-class TINYXML2_LIB XMLHandle
+class  XMLHandle
 {
 public:
     /// Create a handle from any node (at any depth of the tree.) This can be a null pointer.
@@ -1869,7 +1869,7 @@ private:
 	A variant of the XMLHandle class for working with const XMLNodes and Documents. It is the
 	same in all regards, except for the 'const' qualifiers. See XMLHandle for API.
 */
-class TINYXML2_LIB XMLConstHandle
+class  XMLConstHandle
 {
 public:
     XMLConstHandle( const XMLNode* node )											{
@@ -1976,7 +1976,7 @@ private:
 	printer.CloseElement();
 	@endverbatim
 */
-class TINYXML2_LIB XMLPrinter : public XMLVisitor
+class  XMLPrinter : public XMLVisitor
 {
 public:
     /** Construct the printer. If the FILE* is specified,

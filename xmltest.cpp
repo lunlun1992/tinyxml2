@@ -322,21 +322,22 @@ int main( int argc, const char ** argv )
 		}
 		exit(0);
 	}
-
-	FILE* fp = fopen( "resources/dream.xml", "r" );
-	if ( !fp ) {
-		printf( "Error opening test file 'dream.xml'.\n"
+	else
+	{
+		FILE* fp = fopen("E:\\dev\\MyTrail\\tinyxml2\\resources\\dream.xml", "r");
+		if (!fp) {
+			printf("Error opening test file 'dream.xml'.\n"
 				"Is your working directory the same as where \n"
 				"the xmltest.cpp and dream.xml file are?\n\n"
-	#if defined( _MSC_VER )
+#if defined( _MSC_VER )
 				"In windows Visual Studio you may need to set\n"
 				"Properties->Debugging->Working Directory to '..'\n"
-	#endif
-			  );
-		exit( 1 );
+#endif
+				);
+			exit(1);
+		}
+		fclose(fp);
 	}
-	fclose( fp );
-
 	XMLTest( "Example-1", 0, example_1() );
 	XMLTest( "Example-2", 0, example_2() );
 	XMLTest( "Example-3", 0, example_3() );
